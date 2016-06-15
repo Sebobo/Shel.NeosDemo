@@ -1,0 +1,30 @@
+'Shel.NeosDemo:Article':
+  superTypes:
+    'TYPO3.Neos:Document': true
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+  ui:
+    label: 'Newsartikel'
+    icon: 'icon-file'
+    inspector:
+      groups:
+        news:
+          label: 'Artikeloptionen'
+  properties:
+    publicationDate:
+      type: DateTime
+      ui:
+        label: 'Veröffentlichungsdatum'
+        inspector:
+          group: 'news'
+    teaserText:
+      type: string
+
+'Shel.NeosDemo:ArticleList':
+  superTypes:
+    'TYPO3.Neos:Content': true
+  ui:
+    label: 'Artikelliste'
+    icon: 'icon-list'
+    inlineEditable: true

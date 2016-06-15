@@ -1,0 +1,37 @@
+{
+    "name": "neos/neos-base-distribution",
+    "description": "Neos Base Distribution",
+    "license": "GPL-3.0+",
+    "support": {
+        "email": "hello@neos.io",
+        "slack": "http://slack.neos.io/",
+        "forum": "https://discuss.neos.io/",
+        "wiki": "https://discuss.neos.io/c/the-neos-project/project-documentation",
+        "issues": "https://jira.neos.io/browse/NEOS",
+        "docs": "http://neos.readthedocs.org/",
+        "source": "https://github.com/neos/neos-base-distribution"
+    },
+    "config": {
+        "vendor-dir": "Packages/Libraries",
+        "bin-dir": "bin"
+    },
+    "require": {
+        "typo3/neos": "~2.2.0",
+        "typo3/neos-nodetypes": "~2.2.0",
+        "typo3/neos-kickstarter": "~2.2.0",
+        "typo3/neos-seo": "~1.0",
+        "typo3/setup": "~2.0"
+    },
+    "replace": {
+        "typo3/neos-base-distribution": "2.2.4"
+    },
+    "suggest": {
+        "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
+    },
+    "scripts": {
+        "post-update-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-install-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-package-update": "TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+        "post-package-install": "TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+    }
+}

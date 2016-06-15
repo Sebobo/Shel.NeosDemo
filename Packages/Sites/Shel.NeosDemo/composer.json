@@ -1,0 +1,23 @@
+{
+    "description": "Add description here",
+    "type": "typo3-flow-site",
+    "require": {
+        "typo3/neos": "*",
+        "typo3/neos-nodetypes": "*",
+        "typo3/twitter-bootstrap": "*"
+    },
+    "suggest": {
+        "typo3/neos-seo": "*"
+    },
+    "name": "shel/neosdemo",
+    "autoload": {
+        "psr-0": {
+            "Shel\\NeosDemo": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Shel.NeosDemo"
+        }
+    }
+}

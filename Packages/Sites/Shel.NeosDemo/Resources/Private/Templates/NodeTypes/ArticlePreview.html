@@ -1,0 +1,11 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<div class="panel">
+    <div class="panel-body">
+        <small>{node.properties.publicationDate -> f:format.date()}</small>
+        <neos:contentElement.editable property="title"/>
+
+        <neos:contentElement.editable property="teaserText"/>
+
+        <neos:link.node node="{node}">Mehr</neos:link.node>
+    </div>
+</div>
