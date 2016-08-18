@@ -15,7 +15,7 @@ $application
     ->setOption('composerCommandPath', 'composer')
     ->setOption('updateMethod', null)
     ->setOption('scriptIdentifier', 'opcache-reset-script')
-    ->setOption('repositoryUrl', 'git@github.com:Sebobo/Shel.NeosDemo.git')
+    ->setOption('repositoryUrl', 'git@gitlab.com:Sebobo/neosdemo.git')
     ->setOption('TYPO3\\Surf\\Task\\Php\\WebOpcacheResetCreateScriptTask[baseUrl]', $baseUrl)
     ->setOption('TYPO3\\Surf\\Task\\Php\\WebOpcacheResetExecuteTask[baseUrl]', $baseUrl)
     ->setDeploymentPath($deploymentPath)
