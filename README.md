@@ -122,11 +122,6 @@ Create keys for the gitlab-runner user:
     ssh-keygen -t rsa -b 4096 -C "mydemorunner"
     
 Copy the public key in `/home/gitlab-runner/.ssh/id_rsa.pub` to the vagrant users authorized keys in `/home/vagrant/.ssh/authorized_keys`.
-
-Create keys for the vagrant user as user vagrant:
- 
-    ssh-keygen -t rsa -b 4096 -C "mydemovagrant"
-    
-Copy the public key in `/home/vagrant/.ssh/id_rsa.pub` and add it as deploy key in your gitlab repo.
+Also add it as deploy key in your gitlab repo in `Deploy Keys`.
 
 Congrats, you now have a deployment pipeline!
