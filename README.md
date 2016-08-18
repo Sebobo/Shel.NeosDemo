@@ -26,6 +26,10 @@ Now you can login via:
    
     ssh -A vagrant@dev.neosdemo
     
+Add the following to `/etc/hosts`:
+
+    172.17.28.138 staging.neosdemo
+    
 #### Developing
 
 Open this folder in PHPStorm and setup automatic deployment to the dev box like in the screenshots:
@@ -111,5 +115,18 @@ For the runner configuration use
 * done!
 
 By now you should have some changes in your code, commit and push those to the gitlab repo.
+
+Create keys for the gitlab-runner user:
+ 
+    sudo su - gitlab-runner
+    ssh-keygen -t rsa -b 4096 -C "mydemorunner"
+    
+Copy the public key in `/home/gitlab-runner/.ssh/id_rsa.pub` to the vagrant users authorized keys in `/home/vagrant/.ssh/authorized_keys`.
+
+Create keys for the vagrant user as user vagrant:
+ 
+    ssh-keygen -t rsa -b 4096 -C "mydemovagrant"
+    
+Copy the public key in `/home/vagrant/.ssh/id_rsa.pub` and add it as deploy key in your gitlab repo.
 
 Congrats, you now have a deployment pipeline!
