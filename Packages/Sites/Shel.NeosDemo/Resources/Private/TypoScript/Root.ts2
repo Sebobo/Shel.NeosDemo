@@ -18,8 +18,17 @@ page = Page {
 		templatePath = 'resource://Shel.NeosDemo/Private/Templates/Page/Default.html'
 		sectionName = 'body'
 		parts {
-			menu = Menu
-			breadcrumb = Breadcrumb
+			menu = Menu {
+				maximumLevels = 1
+
+				attributes = TYPO3.TypoScript:Attributes {
+					class = 'nav nav-pills'
+				}
+
+				current.attributes.class = 'active'
+			}
+
+			breadcrumb = BreadcrumbMenu
 		}
 		// These are your content areas, you can define as many as you want, just name them and the nodePath.
 		content {
@@ -36,14 +45,4 @@ page = Page {
 	}
 }
 
-prototype(Shel.NeosDemo:ArticleList) < prototype(TYPO3.Neos:Content) {
-	articles = TYPO3.TypoScript:Collection {
-		collection = ${q(site).find('[instanceof Shel.NeosDemo:Article]').get()}
-		itemName = 'node'
-		itemRenderer = TYPO3.Neos:Content {
-			templatePath = 'resource://Shel.NeosDemo/Private/Templates/NodeTypes/ArticlePreview.html'
-			title = ${node.properties.title}
-			teaserText = ${node.properties.teaserText}
-		}
-	}
-}
+include: NodeTypes/*.ts2

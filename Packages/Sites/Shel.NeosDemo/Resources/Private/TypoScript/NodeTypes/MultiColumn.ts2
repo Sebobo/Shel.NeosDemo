@@ -1,0 +1,10 @@
+##
+# Adjust "MultiColumn" element to Twitter bootstrap CSS classes
+#
+prototype(TYPO3.Neos.NodeTypes:MultiColumn) {
+	attributes.class = 'row'
+
+	prototype(TYPO3.Neos.NodeTypes:Image) {
+		attributes.class = 'andere klasse'
+	}
+}

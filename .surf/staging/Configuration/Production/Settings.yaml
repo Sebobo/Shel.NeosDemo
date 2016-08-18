@@ -1,0 +1,12 @@
+TYPO3:
+  Flow:
+    persistence:
+      backendOptions:
+        driver: pdo_mysql
+        dbname: 'neos'
+        user: 'root'
+        password: 'root'
+        host: '127.0.0.1'
+
+  Imagine:
+    driver: Gd

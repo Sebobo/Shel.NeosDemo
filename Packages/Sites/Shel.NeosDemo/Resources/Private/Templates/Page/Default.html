@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-{namespace neos=TYPO3\Neos\ViewHelpers}
-{namespace ts=TYPO3\TypoScript\ViewHelpers}
-{namespace bootstrap=TYPO3\Twitter\Bootstrap\ViewHelpers}
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+	  xmlns:bootstrap="http://typo3.org/ns/TYPO3/Twitter/Bootstrap/ViewHelpers">
 <html>
 <head>
 	<f:section name="stylesheets">
-		<!-- Put your stylesheet inclusions here, they will be included in your website by TypoScript -->
+		<!-- Css Dateien werden hier referenziert -->
+		<link rel="stylesheet" href="{f:uri.resource(path: '3/css/bootstrap.min.css', package: 'TYPO3.Twitter.Bootstrap')}" media="all" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Main.css', package: 'Shel.NeosDemo')}" media="all" />
 	</f:section>
+
 	<f:section name="headScripts">
-		<f:format.raw>
-			<bootstrap:include version="3"/>
-		</f:format.raw>
+		<!-- Javascript Dateien, die früh geladen werden müssen, werden hier referenziert -->
 	</f:section>
 </head>
 <body>
 <f:section name="body">
-	<nav class="menu">
-		{parts.menu -> f:format.raw()}
-	</nav>
-	<nav class="breadcrumb">
-		{parts.breadcrumb -> f:format.raw()}
-	</nav>
-	<div class="content container">
-		{content.main -> f:format.raw()}
+	<div class="container">
+		<nav class="menu">
+			{parts.menu -> f:format.raw()}
+		</nav>
+		<nav>
+			{parts.breadcrumb -> f:format.raw()}
+		</nav>
+		<div class="content">
+			{content.main -> f:format.raw()}
+		</div>
 	</div>
 </f:section>
+
 <f:section name="bodyScripts">
-	<!-- Put your scripts inclusions for the end of the body here, they will be included in your website by TypoScript -->
+	<!-- Javascript Dateien, die später geladen werden können, werden hier referenziert -->
+	<script src="{f:uri.resource(path: 'Libraries/jQuery/jquery-1.10.1.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+	<script src="{f:uri.resource(path: '3/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
 </f:section>
 </body>
 </html>

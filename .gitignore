@@ -21,3 +21,7 @@
 /Tests/Selenium/settings.xml
 Build/Resources/Java/selenium-server-standalone*
 /"
+/.idea
+/Readme.rst
+/Upgrading.rst
+/.vagrant

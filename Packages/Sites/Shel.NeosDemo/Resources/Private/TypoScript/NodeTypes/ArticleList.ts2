@@ -1,0 +1,25 @@
+prototype(Shel.NeosDemo:ArticleList) < prototype(TYPO3.Neos:Content) {
+    articles = TYPO3.TypoScript:Collection {
+        collection = ${q(site).find('[instanceof Shel.NeosDemo:Article]').get()}
+
+        itemName = 'node'
+
+        itemRenderer = TYPO3.Neos:Content {
+            templatePath = 'resource://Shel.NeosDemo/Private/Templates/NodeTypes/ArticlePreview.html'
+            title = ${node.properties.title}
+            teaserText = ${node.properties.teaserText}
+        }
+    }
+
+    @cache {
+        mode = 'cached'
+
+        entryIdentifier {
+            node = ${node}
+        }
+
+        entryTags {
+            1 = 'NodeType_Shel.NeosDemo:Article'
+        }
+    }
+}

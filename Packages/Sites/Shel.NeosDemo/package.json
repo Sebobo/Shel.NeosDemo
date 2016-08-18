@@ -1,0 +1,12 @@
+{
+  "name": "shel-neosdemo",
+  "version": "1.0.0",
+  "description": "Neos demosite",
+  "private": true,
+  "main": " ",
+  "scripts": {
+    "install": "echo 'Run npm post installation tasks like grunt or gulp!'"
+  },
+  "author": "Sebastian Helzle",
+  "license": "MIT"
+}

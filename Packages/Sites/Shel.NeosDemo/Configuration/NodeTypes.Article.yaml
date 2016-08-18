@@ -6,7 +6,7 @@
       type: 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Newsartikel'
-    icon: 'icon-file'
+    icon: 'icon-newspaper-o'
     inspector:
       groups:
         news:
@@ -20,11 +20,8 @@
           group: 'news'
     teaserText:
       type: string
-
-'Shel.NeosDemo:ArticleList':
-  superTypes:
-    'TYPO3.Neos:Content': true
-  ui:
-    label: 'Artikelliste'
-    icon: 'icon-list'
-    inlineEditable: true
+      ui:
+        inspector:
+          aloha:
+            format:
+              'a': false
