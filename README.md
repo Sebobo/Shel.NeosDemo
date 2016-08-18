@@ -64,6 +64,13 @@ Modify the vhost in `/usr/local/etc/nginx/common-neos.conf`:
 * Add after `fastcgi_param  FLOW_REWRITEURLS  1;` the line `fastcgi_param FLOW_CONTEXT Production;`.
 * Restart nginx via `sudo service nginx restart`.
 * Change vagrant users shell to bash via `sudo chsh -s /usr/local/bin/bash vagrant`.
+
+Install composer with the following commands:
+
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
     
 ## Deploying
 
@@ -77,4 +84,32 @@ Done!
 
 ## Setup gitlab
 
-TODO
+### Login or create an account
+
+For simple testing we use a free gitlab.com account.
+If you don't have an account yet, create one and add your public key to your profile.
+
+### Setup project
+
+Create a new repository and push this repository to it with git.
+
+Change the `repositoryUrl` in `.surf/staging.php` to the url of your new repository.
+
+### Setup gitlab runner in staging box
+
+Install wget in the staging box via `sudo pkg install wget`.
+
+Install gitlab ci runner in staging box as described on https://gitlab.com/gitlab-org/gitlab-ci-multi-runner/blob/master/docs/install/freebsd.md.
+
+For the runner configuration use 
+
+* coordinator url: https://gitlab.com/ci
+* token: use the one from your project configuration in `Runners`
+* give it the name `staging-neosdemo`
+* you don't need any tags
+* use `shell` as executor
+* done!
+
+By now you should have some changes in your code, commit and push those to the gitlab repo.
+
+Congrats, you now have a deployment pipeline!
